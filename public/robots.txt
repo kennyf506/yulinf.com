@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://yulinf.com/sitemap.xml
+
+# CI deploy check: 2026-09-24T19:45
