@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yulinf-com",
+  "compatibility_date": "2026-09-24",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "yulinf.com", "custom_domain": true },
+    { "pattern": "www.yulinf.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

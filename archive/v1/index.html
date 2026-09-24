@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方譽霖 / YuLin Fang</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .profile-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .profile-section img {
+      max-width: 310px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .profile-details {
+      flex: 1;
+      min-width: 300px;
+    }
+    .profile-details p {
+      white-space: normal;
+      margin: 8px 0;
+      overflow-wrap: break-word;
+    }
+    .case-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .case-section img {
+      max-width: 310px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .case-details {
+      flex: 1;
+      min-width: 300px;
+    }
+    .case-details p {
+      white-space: normal;
+      margin: 8px 0;
+      overflow-wrap: break-word;
+    }
+    /* 暗黑模式樣式 */
+  .dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    }
+  .dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    }
+  .dark-mode button {
+    background-color: #555;
+    color: #e0e0e0;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+      .container {
+        padding: 15px;
+        margin: 10px;
+      }
+      .profile-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      .profile-section img {
+        max-width: 250px;
+      }
+      .profile-details {
+        width: 100%;
+        text-align: left;
+        padding: 0px;
+      }
+      .case-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      .case-section img {
+        max-width: 250px;
+      }
+      .case-details {
+        width: 100%;
+        text-align: left;
+        padding: 0px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      body {
+        font-size: 13px;
+      }
+      .profile-section img {
+        max-width: 200px;
+      }
+      .case-section img {
+        max-width: 200px;
+      }
+    }
+    @media screen and (max-width: 350px) {
+      body {
+        font-size: 10px;
+      }
+    }
+    h1, h2 {
+      color: #444;
+    }
+    .dark-mode h1,.dark-mode h2 {
+      color: #fff; /* 使用白色，讓標題在暗黑模式下更清晰 */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .dark-mode table {
+      background-color: #1e1e1e;
+      border: 1px solid #444;
+    }
+    .dark-mode th,
+    .dark-mode td {
+      border: 1px solid #444;
+      color: #e0e0e0;
+    }
+    .dark-mode th {
+      background-color: #333;
+    }
+	/* 淺色模式 */
+	a {
+	  color: black;
+	}
+	a:hover {
+	  color: darkred;
+	}
+
+	/* 深色模式 */
+	.dark-mode a {
+	  color: white;
+	}
+	.dark-mode a:hover {
+	  color: darkred;
+	}
+	.dark-mode .vcf-link img {
+ 	filter: invert(1);
+	}
+
+
+    /* 語言切換按鈕樣式 */
+    #lang-toggle {
+      float: right;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007BFF;
+      color: #fff;
+      cursor: pointer;
+    }
+    #lang-toggle:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 語言切換按鈕 -->
+    <button id="lang-toggle" onclick="toggleLanguage()">EN</button>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()" style="margin-bottom: 10px;float: right; padding: 6px 12px; border: none; border-radius: 4px; background-color: #333; color: #fff; cursor: pointer;">Dark Mode</button>
+    
+    <!-- 中文內容 -->
+    <div id="content-cn">
+      <h1>個人介紹</h1>
+      <div class="profile-section">
+        <img src="selfie.jpg" alt="YuLin" id="profile-image"> 
+        <div class="profile-details">
+          <h3><q>擁有跨國商務視野的全方位技術專家，為企業與品牌打造卓越解決方案與活動體驗。</q></h3>
+          <h2>基本資料<a class="vcf-link" href="YuLin_Fang.vcf" download="YuLin_Fang.vcf"><img src="add-contact.png" alt="加入通訊錄" style="display: inline-block; width:30px;  vertical-align: bottom; "></a></h2>
+          <p>姓名：方譽霖 YuLin Fang</p>
+          <p>出生日期：1997 年 06 月 19 日</p>
+          <p>聯絡電話：+886-952-741-677</p>
+          <p>國際電話：+1-323-886-0619</p>
+          <p>電子郵件：<a href="mailto:kennyf5056@gmail.com">kennyf5056@gmail.com</a></p>
+          <p>興趣：登山、野營、水上活動、自行車</p>
+          <p>特質：極強的學習能力、適應能力以及在高壓環境下擁有迅速反應</p>
+	  <p>社群網站：<a href="https://www.instagram.com/yu_lin_fang/">Instagram</a>、<a href="https://www.facebook.com/kennyf506">Facebook</a></p>
+        </div>
+      </div>
+      <h2>學歷</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>級別</th>
+            <th>學校名稱</th>
+            <th>科系</th>
+            <th>起訖日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>學士（肄）</td>
+            <td>國立臺灣大學</td>
+            <td>資訊管理學系</td>
+            <td>106/09 ~ 112/09</td>
+          </tr>
+          <tr>
+            <td>學士（肄）</td>
+            <td>國立臺灣科技大學</td>
+            <td>電機工程系</td>
+            <td>104/09 ~ 105/06</td>
+          </tr>
+          <tr>
+            <td>高中</td>
+            <td>臺北市立大安高級工業職業學校</td>
+            <td>電機科</td>
+            <td>101/09 ~ 104/06</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>工作經歷</h2>
+      <p><b>光房子創意股份有限公司 負責人兼執行總監（2021.04 ~ 至今）</b></p>
+      <ul>
+          <li><a href="https://www.youtube.com/playlist?list=PL9JXpVJasvyAvcFWCClSImCVIUm4yUkhD" target="_blank">錄影直播工程</a></li>
+	  <ul>
+	   <li>曾三度為NVIDIA 黃仁勳執行長執行跨國連線直播
+	   </li>
+	  </ul>
+  
+	 <li><a href="https://www.youtube.com/playlist?list=PL9JXpVJasvyC5XUEOs-pndXPfzixEPW4W" target="_blank">影片製作</a>及<a href="https://www.youtube.com/playlist?list=PL9JXpVJasvyAjZOJzfSdl2qDEyFv-9s7G" target="_blank">活動紀錄</a></li>
+         <ul>
+	  <li>連續五年國立臺灣大學學務處指定影像廠商</li>
+          <li>至善社會福利基金會指定合作廠商</li>
+	 </ul>
+      </ul>
+      <h2>社團經歷</h2>
+      <ul>
+        <li>《BNI 大芯分會》 資訊長</li>
+        <li>《Fight Covid Taiwan》 共同創辦人</li>
+        <li>《臺大麥塊 MineNTU》 召集人</li>
+        <li>《國立臺灣大學學生會》 第32屆影像總監</li>
+      </ul>
+      <h2>講師經歷</h2>
+      <p>明志科技大學學務處課外活動指導組 特約講師</p>
+      <p>國立臺灣大學《新生書院 OC12 影片部內訓》 講師</p>
+      <p>非典型管院人《嘿，同學！聽說你在...》 講者</p>
+      <h2>證照</h2>
+      <ul>
+        <li>中華民國水上救生協會 救生員及救生教練證</li>
+        <li>EMT-1 初級救護員證</li>
+        <li>丙級工業配線證</li>
+      </ul>
+      <h2>技能</h2>
+      <ul>
+        <li>語言能力
+          <ul>
+            <li>華語：精通</li>
+            <li>英語：流利</li>
+          </ul>
+        </li>
+        <li>專業技能
+          <ul>
+            <li>影像處理</li>
+            <li>直播工程</li>
+            <li>音響工程</li>
+            <li>電力工程</li>
+            <li>網路通訊</li>
+          </ul>          
+        </li>
+        <li>其餘技能
+          <ul>
+            <li>五線譜讀譜</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>代表專案分享</h2>
+      <div class="case-section">
+        <img src="case1.jpg" alt="NVIDIA" id="case-image"> 
+        <div class="case-details">
+          <li><h3>NVIDIA 輝達黃仁勳執行長直播工程</h3></li>
+        <p>2024 年六月黃仁勳先生訪台期間遇全球第三大軟體公司 SAP 舉辦全球技術與創新趨勢發表會，譽霖擔任臺灣端的技術負責人，與美國直播團隊事前接洽、測試及綵排，活動現場協助 NVIDIA 以及 SAP 人員執跨國連線。</p>
+        <p>同年十二月黃仁勳先生前往亞洲訪問泰國及越南總理時又遇美國 WIRED 雜誌的年度活動 The Big Interview 以及全球半導體聯盟 GSA Awards Dinner 頒獎晚會。由於譽霖擁有豐富的商務英語能力以及六月對接美方的經驗，因此獲得客戶信任前往泰國曼谷以及越南河內協助執行兩場跨國連線直播。</p>
+        </div>
+      </div>
+      <p></p>
+      <div class="case-section">
+        <img src="case2.jpg" alt="NTU" id="case-image"> 
+        <div class="case-details">
+          <li><h3>國立臺灣大學 影片製作</h3></li>
+          <p>光房子自 2021 年成立以來就與臺灣大學學務處合作，目前合作邁入第五年，為臺大學務處各單位製作包括「開學典禮」、「新生書院」、「社團聯展」等各式校級宣傳影片，並在近年協助執行各大校級活動硬體統籌、協力。</p>
+        </div>
+      </div>
+
+
+      
+      <h2>&nbsp;</h2>
+      <h2>&nbsp;</h2>
+      <footer>
+        <p style="text-align:center">&copy; 2025 YuLin Fang. All rights reserved.</p>
+        <p style="text-align:center">Special Thanks to Brian Jhan & HankCheng399 & Mouchi0357.</p>
+      </footer>
+    </div>
+    
+    <!-- 英文內容 -->
+    <div id="content-en" style="display:none;">
+      <h1>About Me</h1>
+      <div class="profile-section">
+        <img src="selfie.jpg" alt="YuLin" id="profile-image">
+        <div class="profile-details">
+          <h3><q>A globally-minded, multi-skilled tech innovator delivering transformative solutions and event experiences for forward-thinking brands.</q></h3>
+          <h2>Basic Information<a class="vcf-link" href="YuLin_Fang_en.vcf" download="YuLin_Fang.vcf"><img src="add-contact.png" alt="加入通訊錄" style="display: inline-block; width:30px;  vertical-align: bottom; "></a></h2>
+          <p>Name: YuLin Fang <span style="color: gray;">He/Him</span></p>
+          <p>Date of Birth: June 19, 1997</p>
+          <p>Contact Phone: +886-952-741-677</p>
+          <p>International Phone: +1-323-886-0619</p>
+          <p>Email: <a href="mailto:kennyf5056@gmail.com">kennyf5056@gmail.com</a></p>
+          <p>Interests: Hiking, Camping, Water Activities, Cycling</p>
+          <p>Attributes: Exceptional learning ability, adaptability, and quick response under pressure</p>
+        </div>
+      </div>
+      <h2>Education</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Degree</th>
+            <th>Institution</th>
+            <th>Major</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bachelor's (Incomplete)</td>
+            <td>National Taiwan University</td>
+            <td>Department of Information Management</td>
+            <td>Sep. 2017 ~ Sep. 2023</td>
+          </tr>
+          <tr>
+            <td>Bachelor's (Incomplete)</td>
+            <td>National Taiwan University of Science and Technology</td>
+            <td>Department of Electrical Engineering</td>
+            <td>Sep. 2015 ~ Jun. 2016</td>
+          </tr>
+          <tr>
+            <td>High School</td>
+            <td>Taipei Municipal Da-An Vocational High School</td>
+            <td>Department of Electrical Engineering</td>
+            <td>Sep. 2012 ~ Jun. 2015</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Work Experience</h2>
+      <p><b>Lighthouse Creative Co., Ltd. – Founder &amp; Executive Director (April 2021 ~ Present)</b></p>
+      <ul>
+<li><a href="https://www.youtube.com/playlist?list=PL9JXpVJasvyAvcFWCClSImCVIUm4yUkhD" target="_blank">EFP and Live Streaming</a></li>
+	  <ul>
+	   <li>Executed multinational live streaming for NVIDIA CEO Jensen Huang in Bangkok, Thailand and Hanoi, Vietnam
+	   </li>
+	  </ul>
+  
+	 <li><a href="https://www.youtube.com/playlist?list=PL9JXpVJasvyC5XUEOs-pndXPfzixEPW4W" target="_blank">Video Production</a> and <a href="https://www.youtube.com/playlist?list=PL9JXpVJasvyAjZOJzfSdl2qDEyFv-9s7G" target="_blank">Event Recording</a></li>
+         <ul>
+	  <li>Designated video vendor by the Office of Student Affairs, National Taiwan University for five consecutive years</li>
+          <li>Designated partner by the Zhi-shan Foundation Taiwan</li>
+	 </ul>
+      </ul>
+      <h2>Lecturer Experience</h2>
+      <p>Adjunct Lecturer for Extracurricular Activities at Ming Chi University of Technology Student Affairs Office</p>
+      <p>Lecturer for NTU Freshmen College OC12 Video Department Internal Training</p>
+      <p>Speaker at "Hey, Classmate! I Heard You Are..."</p>
+      <h2>Certifications</h2>
+      <ul>
+        <li>Lifeguard and Lifesaving Instructor Certification from the Chinese Taipei Lifesaving Association</li>
+        <li>EMT-1 Basic Emergency Medical Technician Certification</li>
+        <li>Class C Industrial Wiring Certification</li>
+      </ul>
+      <h2>Skills</h2>
+      <ul>
+        <li>Language Proficiency
+          <ul>
+            <li>Mandarin: Proficient</li>
+            <li>English: Fluent</li>
+          </ul>
+        </li>
+        <li>Professional Skills
+          <ul>
+            <li>Image Processing</li>
+            <li>Live Streaming Engineering</li>
+            <li>Audio Engineering</li>
+            <li>Electrical Engineering</li>
+            <li>Network Communications</li>
+          </ul>
+        </li>
+        <li>Other Academic Subjects
+        <li>Other Skills
+          <ul>
+            <li>Reading Musical Notation</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>Representative Projects</h2>
+      <div class="case-section">
+        <img src="case1.jpg" alt="NVIDIA" id="case-image"> 
+        <div class="case-details">
+          <li><h3>NVIDIA CEO Jensen Huang Live Streaming Project</h3></li>
+          <p>In June 2024, during Jensen Huang’s visit to Taiwan when global software giant SAP held its Global Technology and Innovation Trends Conference, YuLin served as the technical lead on the Taiwan side—coordinating with the U.S. live streaming team for pre-meetings, tests, and rehearsals, and assisting NVIDIA and SAP personnel with multinational live connectivity.</p>
+          <p>In December of the same year, as Jensen Huang visited Asia and met with the prime ministers of Thailand and Vietnam, he also participated in WIRED magazine’s annual event “The Big Interview” and the Global Semiconductor Alliance’s GSA Awards Dinner. Owing to YuLin’s rich business English skills and his June experience liaising with the U.S. team, he was entrusted to assist in executing two multinational live streams in Bangkok, Thailand and Hanoi, Vietnam.</p>
+        </div>
+      </div>
+      <p></p>
+      <div class="case-section">
+        <img src="case2.jpg" alt="NTU" id="case-image"> 
+        <div class="case-details">
+          <li><h3>NTU Video Production</h3></li>
+          <p>Since its establishment in 2021, Lighthouse Creative has collaborated with the Office of Student Affairs at National Taiwan University. Now in its fifth year of partnership, the company has produced a variety of campus promotional videos for NTU—including “Opening Ceremony”, “Freshmen College”, and “Club Exhibitions”—and in recent years has assisted in hardware coordination for major campus events.</p>
+        </div>
+      </div>
+      <footer>
+        <p style="text-align:center">&copy; 2025 YuLin Fang. All rights reserved.</p>
+        <p style="text-align:center">Special Thanks to Brian Jhan &amp; HankCheng399 &amp; Mouchi0357.</p>
+      </footer>
+    </div>
+  </div>
+
+
+  <!-- 回到頂部按鈕 -->
+  <button id="back-to-top" onclick="scrollToTop()" style="position: fixed; bottom: 20px; right: 20px; display: none; padding: 8px 12px; border: none; border-radius: 4px; background-color: #007BFF; color: #fff; cursor: pointer;">Back to Top</button>
+
+  
+  <script>
+    function toggleLanguage() {
+      var cn = document.getElementById('content-cn');
+      var en = document.getElementById('content-en');
+      var btn = document.getElementById('lang-toggle');
+      if (cn.style.display === 'none') {
+        cn.style.display = 'block';
+        en.style.display = 'none';
+        btn.textContent = 'EN';
+        document.documentElement.lang = 'zh';
+      } else {
+        cn.style.display = 'none';
+        en.style.display = 'block';
+        btn.textContent = '中文';
+        document.documentElement.lang = 'en';
+      }
+    }
+    function toggleDarkMode() {
+      var body = document.body;
+      var toggleBtn = document.getElementById('dark-mode-toggle');
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = 'Light Mode';
+      } 
+      else {
+        toggleBtn.textContent = 'Dark Mode';
+      }
+    }
+      // 當滑動超過 200px 時顯示按鈕
+    window.addEventListener('scroll', function(){
+      var btn = document.getElementById('back-to-top');
+      if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } 
+      else {
+        btn.style.display = "none";
+      }
+    });
+  
+  // 平滑滾動至頂部
+    function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-mode');
+      document.getElementById('dark-mode-toggle').textContent = 'Light Mode';
+    }
+  </script>
+</body>
+</html>
