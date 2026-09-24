@@ -1,0 +1,12 @@
+{
+  "name": "yulinf-com",
+  "private": true,
+  "description": "方譽霖個人網站 yulinf.com",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.136.3"
+  }
+}
