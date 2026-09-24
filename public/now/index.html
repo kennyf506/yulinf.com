@@ -17,6 +17,7 @@
   <meta property="og:description" content="我現在正在專注的事。不定期更新的 /now 頁面。">
   <meta property="og:image" content="https://yulinf.com/og-image.jpg">
   <meta property="og:locale" content="zh_TW">
+  <meta property="og:locale:alternate" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="近況 Now｜方譽霖 YuLin Fang">
@@ -26,6 +27,11 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400..700&family=Noto+Serif+TC:wght@600..700&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
 
   <script type="application/ld+json">
   {
@@ -43,113 +49,30 @@
   </script>
 
   <style>
-    :root {
-      --bg: #f4f5f7;
-      --text: #2f3237;
-      --text-muted: #6b7078;
-      --heading: #1e2126;
-      --accent: #0b5cad;
-      --accent-hover: #08427c;
-      --border: #e2e5e9;
-      --rule: #dfe3e8;
-      --mark: rgba(11, 92, 173, .07);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121316;
-        --text: #dfe2e6;
-        --text-muted: #9aa0a8;
-        --heading: #f2f4f6;
-        --accent: #6fb3f2;
-        --accent-hover: #a3cdf7;
-        --border: #33373d;
-        --rule: #2b2f34;
-        --mark: rgba(111, 179, 242, .09);
-      }
-    }
-    :root[data-theme="light"] {
-      --bg: #f4f5f7; --text: #2f3237; --text-muted: #6b7078; --heading: #1e2126;
-      --accent: #0b5cad; --accent-hover: #08427c; --border: #e2e5e9; --rule: #dfe3e8;
-      --mark: rgba(11, 92, 173, .07);
-    }
-    :root[data-theme="dark"] {
-      --bg: #121316; --text: #dfe2e6; --text-muted: #9aa0a8; --heading: #f2f4f6;
-      --accent: #6fb3f2; --accent-hover: #a3cdf7; --border: #33373d; --rule: #2b2f34;
-      --mark: rgba(111, 179, 242, .09);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
-                   "PingFang TC", "Microsoft JhengHei", Roboto, Arial, sans-serif;
-      font-size: clamp(15px, 0.4vw + 14px, 17px);
-      line-height: 1.85;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-text-size-adjust: 100%;
-    }
-
+    /* --- 近況頁專屬：維持窄欄的閱讀感 --- */
     .page {
       max-width: 640px;
       margin: 0 auto;
       padding-block: clamp(28px, 7vw, 72px);
       padding-inline: 22px;
     }
+    body { line-height: 1.85; }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-hover); text-decoration: underline; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
-
-    /* --- 頁首 --- */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: clamp(36px, 8vw, 64px);
-      font-size: .88em;
-    }
-    .nav a.home { color: var(--text-muted); }
-    .nav a.home:hover { color: var(--accent); text-decoration: none; }
-    #theme-toggle {
-      font: inherit;
-      font-size: .95em;
-      padding: 5px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: color .15s ease, border-color .15s ease;
-    }
-    #theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
-    #theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-    /* --- 標題區 --- */
     h1 {
       font-size: clamp(2rem, 6vw, 2.9rem);
-      line-height: 1.2;
-      letter-spacing: .01em;
-      color: var(--heading);
       margin: 0 0 .1em;
-      font-weight: 650;
     }
     h1 .latin {
       display: block;
-      font-size: .34em;
+      font-family: var(--font);
+      font-size: .3em;
       font-weight: 500;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--text-muted);
       margin-top: .9em;
     }
-    .lede {
-      color: var(--text-muted);
-      margin: 1.6em 0 0;
-      font-size: 1.02em;
-    }
+    .lede { color: var(--text-muted); margin: 1.6em 0 0; font-size: 1.02em; }
     .updated {
       display: inline-block;
       margin-top: 1.9em;
@@ -161,7 +84,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* --- 段落區塊 --- */
     section {
       margin-top: clamp(38px, 8vw, 58px);
       padding-top: clamp(30px, 6vw, 44px);
@@ -171,15 +93,11 @@
       font-size: 1.02rem;
       font-weight: 620;
       letter-spacing: .02em;
-      color: var(--heading);
       margin: 0 0 .9em;
     }
     section p { margin: 0 0 1.1em; }
     section p:last-child { margin-bottom: 0; }
-    section ul {
-      margin: 0;
-      padding-left: 1.25em;
-    }
+    section ul { margin: 0; padding-left: 1.25em; }
     section ul li { margin-bottom: .5em; }
     section ul li:last-child { margin-bottom: 0; }
 
@@ -191,110 +109,122 @@
       font-size: .95em;
     }
 
-    /* --- 頁尾 --- */
-    footer {
-      margin-top: clamp(48px, 10vw, 76px);
-      padding-top: clamp(26px, 5vw, 34px);
-      border-top: 1px solid var(--rule);
-      color: var(--text-muted);
-      font-size: .86em;
-      line-height: 1.8;
-    }
-    footer p { margin: 0 0 .5em; }
-    footer p:last-child { margin-bottom: 0; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    @media print {
-      .nav { display: none; }
-      body { background: #fff; color: #000; }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
 <body>
   <div class="page">
 
-    <nav class="nav">
-      <a class="home" href="/">← 方譽霖 YuLin Fang</a>
-      <button id="theme-toggle" type="button" aria-pressed="false">深色模式</button>
+    <nav class="site-nav">
+      <a class="brand" href="/" data-zh="方譽霖" data-en="YuLin Fang">方譽霖</a>
+      <ul class="links">
+        <li><a href="/" data-zh="首頁" data-en="Home">首頁</a></li>
+        <li><a href="/cv" data-zh="履歷" data-en="CV">履歷</a></li>
+        <li><a href="/now" aria-current="page" data-zh="近況" data-en="Now">近況</a></li>
+      </ul>
+      <div class="nav-tools">
+        <button id="lang-toggle" type="button" lang="en">EN</button>
+        <button id="theme-toggle" type="button" aria-pressed="false">深色模式</button>
+      </div>
     </nav>
 
-    <header>
-      <h1>近況<span class="latin">Now</span></h1>
-      <p class="lede">這一頁寫的是我現在正在專注的事——不是履歷，也不是流水帳，而是如果我們剛好碰面，我會跟你聊的東西。</p>
-      <p class="updated">最後更新：<time datetime="2026-09-24">2026 年 9 月 24 日</time>・臺北</p>
-    </header>
+    <!-- ===================== 中文內容 ===================== -->
+    <div data-lang="zh">
+      <header>
+        <h1 class="display">近況<span class="latin">Now</span></h1>
+        <p class="lede">這一頁寫的是我現在正在專注的事——不是履歷，也不是流水帳，而是如果我們剛好碰面，我會跟你聊的東西。</p>
+        <p class="updated">最後更新：<time datetime="2026-09-24">2026 年 9 月 24 日</time>・臺北</p>
+      </header>
 
-    <section>
-      <h2>目前在忙什麼</h2>
-      <p class="todo">（待補）光房子創意手上的案子、正在推進的目標。</p>
-    </section>
+      <section>
+        <h2>目前在忙什麼</h2>
+        <p class="todo">（待補）光房子創意手上的案子、正在推進的目標。</p>
+      </section>
 
-    <section>
-      <h2>正在學的事</h2>
-      <p class="todo">（待補）新的技術、器材、語言，或任何正在練的東西。</p>
-    </section>
+      <section>
+        <h2>正在學的事</h2>
+        <p class="todo">（待補）新的技術、器材、語言，或任何正在練的東西。</p>
+      </section>
 
-    <section>
-      <h2>最近在讀、在看、在聽</h2>
-      <p class="todo">（待補）書、影集、Podcast、音樂。</p>
-    </section>
+      <section>
+        <h2>最近在讀、在看、在聽</h2>
+        <p class="todo">（待補）書、影集、Podcast、音樂。</p>
+      </section>
 
-    <section>
-      <h2>生活</h2>
-      <p class="todo">（待補）登山、野營、水上活動、自行車——最近去了哪、下一趟想去哪。</p>
-    </section>
+      <section>
+        <h2>生活</h2>
+        <p class="todo">（待補）登山、野營、水上活動、自行車——最近去了哪、下一趟想去哪。</p>
+      </section>
 
-    <section>
-      <h2>現在想找什麼</h2>
-      <p class="todo">（待補）想接的案子類型、想認識的人、想被介紹的機會。寫清楚一點，讀到的人才知道怎麼幫你。</p>
-      <p>如果看到這裡覺得可以聊聊，歡迎寄信到
-        <a href="mailto:kennyf5056@gmail.com">kennyf5056@gmail.com</a>，
-        或直接打 <a href="tel:+886952741677">+886-952-741-677</a>。</p>
-    </section>
+      <section>
+        <h2>現在想找什麼</h2>
+        <p class="todo">（待補）想接的案子類型、想認識的人、想被介紹的機會。寫清楚一點，讀到的人才知道怎麼幫你。</p>
+        <p>如果看到這裡覺得可以聊聊，歡迎寄信到
+          <a href="mailto:kennyf5056@gmail.com">kennyf5056@gmail.com</a>，
+          或直接打 <a href="tel:+886952741677">+886-952-741-677</a>。</p>
+      </section>
 
-    <footer>
-      <p>這是一個 <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now 頁面</a>，
-         概念來自 Derek Sivers。你也可以看看
-         <a href="https://nownownow.com/TW" target="_blank" rel="noopener">臺灣其他人的 /now 頁</a>。</p>
-      <p>&copy; <span class="year">2026</span> YuLin Fang ・ <a href="/">回首頁</a></p>
-    </footer>
+      <footer class="site-footer">
+        <p>這是一個 <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now 頁面</a>，
+           概念來自 Derek Sivers。你也可以看看
+           <a href="https://nownownow.com/TW" target="_blank" rel="noopener">臺灣其他人的 /now 頁</a>。</p>
+        <p>&copy; <span class="year">2026</span> YuLin Fang ・ <a href="/">回首頁</a></p>
+      </footer>
+    </div>
+
+    <!-- ===================== English ===================== -->
+    <div data-lang="en" lang="en" hidden>
+      <header>
+        <h1 class="display">Now<span class="latin">近況</span></h1>
+        <p class="lede">This page is about what I'm focused on right now — not a CV and not a diary, but the things I'd tell you about if we happened to meet today.</p>
+        <p class="updated">Last updated: <time datetime="2026-09-24">24 September 2026</time> · Taipei</p>
+      </header>
+
+      <section>
+        <h2>What I'm working on</h2>
+        <p class="todo">(To be written) Current Lighthouse Creative projects and the goals I'm pushing on.</p>
+      </section>
+
+      <section>
+        <h2>What I'm learning</h2>
+        <p class="todo">(To be written) New tech, new gear, languages — whatever I'm practising.</p>
+      </section>
+
+      <section>
+        <h2>Reading, watching, listening</h2>
+        <p class="todo">(To be written) Books, series, podcasts, music.</p>
+      </section>
+
+      <section>
+        <h2>Life</h2>
+        <p class="todo">(To be written) Hiking, camping, water sports, cycling — where I've been and where I'm headed next.</p>
+      </section>
+
+      <section>
+        <h2>What I'm looking for</h2>
+        <p class="todo">(To be written) The kind of work I'd like to take on, people I'd like to meet, introductions that would help.</p>
+        <p>If any of this is worth a conversation, email
+          <a href="mailto:kennyf5056@gmail.com">kennyf5056@gmail.com</a>
+          or call <a href="tel:+886952741677">+886-952-741-677</a>.</p>
+      </section>
+
+      <footer class="site-footer">
+        <p>This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now page</a>,
+           an idea from Derek Sivers. You can also browse
+           <a href="https://nownownow.com/TW" target="_blank" rel="noopener">other /now pages from Taiwan</a>.</p>
+        <p>&copy; <span class="year">2026</span> YuLin Fang · <a href="/">Home</a></p>
+      </footer>
+    </div>
 
   </div>
 
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var btn = document.getElementById('theme-toggle');
+  <button id="back-to-top" type="button">回到頂部</button>
 
-      function isDark() {
-        var attr = root.getAttribute('data-theme');
-        if (attr) return attr === 'dark';
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-      }
-      function sync() {
-        btn.textContent = isDark() ? '淺色模式' : '深色模式';
-        btn.setAttribute('aria-pressed', String(isDark()));
-      }
-
-      /* 與首頁共用 localStorage 的 theme 設定 */
-      var saved = null;
-      try { saved = localStorage.getItem('theme'); } catch (e) {}
-      if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
-      sync();
-
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
-        if (!root.hasAttribute('data-theme')) sync();
-      });
-
-      btn.addEventListener('click', function () {
-        var next = isDark() ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        try { localStorage.setItem('theme', next); } catch (e) {}
-        sync();
-      });
-
-      var y = String(new Date().getFullYear());
-      Array.prototype.forEach.call(document.querySelectorAll('.year'), function (el) { el.textContent = y; });
-    })();
-  </script>
+  <script src="/assets/site.js"></script>
 </body>
 </html>
