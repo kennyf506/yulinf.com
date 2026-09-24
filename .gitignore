@@ -1,3 +1,6 @@
 .DS_Store
 .wrangler/
 node_modules/
+
+# /now 由 scripts/build-now.mjs 產生，請編輯 content/now/*.md
+public/now/

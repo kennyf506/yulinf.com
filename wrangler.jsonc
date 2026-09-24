@@ -7,6 +7,8 @@
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },
+  // Cloudflare Workers Builds 與本機 deploy 都會先跑這個，把 content/now/*.md 產生成 HTML
+  "build": { "command": "npm run build" },
   "workers_dev": true,
   "routes": [
     { "pattern": "yulinf.com", "custom_domain": true },
