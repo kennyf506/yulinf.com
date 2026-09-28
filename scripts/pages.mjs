@@ -59,21 +59,21 @@ const META = {
   home: {
     zh: {
       title: '方譽霖 YuLin Fang｜直播工程・影像製作',
-      description: '方譽霖（YuLin Fang），光房子創意股份有限公司負責人兼執行總監。專長跨國直播工程、影像製作與活動技術統籌。這裡有我的履歷、近況，以及公司的作品。',
+      description: '方譽霖（YuLin Fang），光房子創意負責人，做直播工程跟影像製作。這裡有我的履歷、近況和公司介紹。',
     },
     en: {
       title: 'YuLin Fang 方譽霖 | Live Streaming Engineering & Video Production',
-      description: 'YuLin Fang, founder and executive director of Lighthouse Creative Co., Ltd. Multinational live streaming engineering, video production and event technical direction. My CV, what I am up to now, and the studio.',
+      description: "YuLin Fang runs Lighthouse Creative and works on live streaming and video production. Here you'll find my CV, what I'm up to lately, and a link to the studio.",
     },
   },
   cv: {
     zh: {
       title: '履歷 CV｜方譽霖 YuLin Fang',
-      description: '方譽霖（YuLin Fang）完整履歷：工作經歷、代表專案、講師與社團經歷、技能、證照與學歷。光房子創意股份有限公司負責人兼執行總監，專長跨國直播工程、影像製作與活動技術統籌。',
+      description: '方譽霖（YuLin Fang）的履歷：工作經歷、代表專案、講師與社團經歷、證照、技能和學歷。',
     },
     en: {
       title: 'CV | YuLin Fang 方譽霖',
-      description: 'The full CV of YuLin Fang: work experience, representative projects, lecturing, student organizations, skills, certifications and education. Founder and executive director of Lighthouse Creative.',
+      description: "YuLin Fang's CV: work, key projects, teaching, student organizations, certifications, skills and education.",
     },
   },
 };
@@ -138,7 +138,7 @@ export function render404() {
     section: null,
     alternate: false,
     noindex: true,
-    title: '找不到這個頁面｜方譽霖 YuLin Fang',
+    title: '找不到這一頁｜方譽霖 YuLin Fang',
     description: '這個網址沒有內容。',
     style: `
 .page { max-width: 640px; margin: 0 auto; padding: clamp(28px, 7vw, 72px) 22px; }
@@ -149,8 +149,8 @@ export function render404() {
 `,
     body: `    <main>
       <div class="lost">
-        <h1 class="display">找不到這個頁面</h1>
-        <p>網址可能打錯了，或是這一頁已經搬家。可以從下面這幾個地方重新開始。</p>
+        <h1 class="display">找不到這一頁</h1>
+        <p>可能是網址打錯，或這頁已經不在了。從下面挑一個回去吧。</p>
         <div class="actions">
           <a class="btn" href="/">回首頁</a>
           <a class="btn btn--ghost" href="/cv">履歷</a>
@@ -158,8 +158,8 @@ export function render404() {
         </div>
       </div>
       <div class="lost" lang="en">
-        <h1 class="display">Page not found</h1>
-        <p>The address may be mistyped, or the page has moved. Try one of these instead.</p>
+        <h1 class="display">This page doesn't exist</h1>
+        <p>The link might be wrong, or the page is gone. Try one of these:</p>
         <div class="actions">
           <a class="btn" href="/en">Home</a>
           <a class="btn btn--ghost" href="/en/cv">CV</a>

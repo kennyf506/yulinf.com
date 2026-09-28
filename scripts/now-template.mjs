@@ -152,14 +152,14 @@ function footer(lang) {
   const home = localePath(lang, '/');
   return lang === 'en'
     ? `    <footer class="site-footer">
-      <p>This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now page</a>,
-         an idea from Derek Sivers. You can also browse
+      <p>The <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now page</a>
+         is an idea from Derek Sivers. You can also browse
          <a href="https://nownownow.com/TW" target="_blank" rel="noopener">other /now pages from Taiwan</a>.</p>
       <p>&copy; ${year} YuLin Fang · <a href="${archive}">Past updates</a> · <a href="${home}">Home</a></p>
     </footer>`
     : `    <footer class="site-footer">
-      <p>這是一個 <a href="https://nownownow.com/about" target="_blank" rel="noopener">/now 頁面</a>，
-         概念來自 Derek Sivers。你也可以看看
+      <p><a href="https://nownownow.com/about" target="_blank" rel="noopener">/now 頁面</a>
+         是 Derek Sivers 想出來的，也可以去看看
          <a href="https://nownownow.com/TW" target="_blank" rel="noopener">臺灣其他人的 /now 頁</a>。</p>
       <p>&copy; ${year} YuLin Fang ・ <a href="${archive}">歷史近況</a> ・ <a href="${home}">回首頁</a></p>
     </footer>`;
@@ -183,13 +183,13 @@ function quarterBody(entry, lang, { isLatest }) {
 
   const notice = isLatest ? '' : zh
     ? `    <div class="notice">
-      這是 <strong>${quarterLabel(entry, lang)}</strong> 的存檔，內容停在 ${entry.dateZh}。
+      這是 <strong>${quarterLabel(entry, lang)}</strong> 的近況，寫於 ${entry.dateZh}。
       <a href="${localePath(lang, '/now')}">看最新近況 →</a>
     </div>
 
 `
     : `    <div class="notice">
-      This is the archived <strong>${quarterLabel(entry, lang)}</strong> update, frozen on ${entry.dateEn}.
+      This is the <strong>${quarterLabel(entry, lang)}</strong> update, written on ${entry.dateEn}.
       <a href="${localePath(lang, '/now')}">See what I'm doing now →</a>
     </div>
 
@@ -198,8 +198,8 @@ function quarterBody(entry, lang, { isLatest }) {
   return notice + `    <header>
       <h1 class="display">${zh ? '近況<span class="latin">Now</span>' : 'Now<span class="latin" lang="zh-Hant">近況</span>'}</h1>
       <p class="lede">${zh
-        ? '這一頁寫的是我現在正在專注的事——不是履歷，也不是流水帳，而是如果我們剛好碰面，我會跟你聊的東西。'
-        : "This page is about what I'm focused on right now — not a CV and not a diary, but the things I'd tell you about if we happened to meet today."}</p>
+        ? '這頁寫我最近在忙什麼。如果我們剛好碰到面，大概就會聊到這些。'
+        : "What I've been up to lately. If we ran into each other, this is probably what we'd end up talking about."}</p>
       <div class="meta">
         <p class="updated">${zh ? '最後更新：' : 'Last updated: '}<time datetime="${entry.date}">${zh ? entry.dateZh : entry.dateEn}</time>${zh ? '・' : ' · '}${place}</p>
         <p class="version">${version}</p>
@@ -225,8 +225,8 @@ function quarterJsonld(entry, lang, { canonical }) {
       : `Now | ${entry.label} | YuLin Fang`,
     inLanguage: lang === 'zh' ? 'zh-Hant' : 'en',
     description: lang === 'zh'
-      ? `方譽霖在 ${entry.label} 正在專注的事。`
-      : `What YuLin Fang was focused on in ${entry.label}.`,
+      ? `方譽霖 ${entry.label} 的近況。`
+      : `What YuLin Fang was up to in ${entry.label}.`,
     datePublished: entry.date,
     dateModified: entry.date,
     isPartOf: { '@type': 'WebSite', url: `${SITE}/`, name: '方譽霖 YuLin Fang' },
@@ -244,8 +244,8 @@ export function renderNow(entry, lang) {
     path: '/now',
     title: lang === 'zh' ? '近況 Now｜方譽霖 YuLin Fang' : 'Now | YuLin Fang 方譽霖',
     description: lang === 'zh'
-      ? `方譽霖（YuLin Fang）目前正在專注的事：工作、學習與生活的近況紀錄。這是一個 /now 頁面，每季更新，目前是 ${entry.label}。`
-      : `What YuLin Fang is focused on right now: work, learning and life. This is a /now page, updated every quarter; currently ${entry.label}.`,
+      ? `方譽霖（YuLin Fang）最近在忙的事，工作、學東西跟生活都有。每季更新，現在是 ${entry.label}。`
+      : `What YuLin Fang is up to lately: work, learning and life. Updated every quarter, currently ${entry.label}.`,
     jsonld: quarterJsonld(entry, lang, { canonical }),
     body: quarterBody(entry, lang, { isLatest: true }),
   });
@@ -287,8 +287,8 @@ export function renderArchiveIndex(entries, lang) {
     path: '/now/archive',
     title,
     description: zh
-      ? '方譽霖（YuLin Fang）歷年 /now 近況頁的存檔索引，每季一份。'
-      : "An index of YuLin Fang's past /now updates, one per quarter.",
+      ? '方譽霖（YuLin Fang）以前寫過的近況，每季一篇。'
+      : "YuLin Fang's past /now updates, one per quarter.",
     ogType: 'website',
     jsonld: {
       '@context': 'https://schema.org',
@@ -309,7 +309,7 @@ export function renderArchiveIndex(entries, lang) {
     body: `    <header>
       <h1 class="display">${zh ? '歷史近況<span class="latin">Archive</span>' : 'Archive<span class="latin" lang="zh-Hant">歷史近況</span>'}</h1>
       <p class="lede">${zh
-        ? '每一季的近況都留著。下面是歷年的紀錄，最新的在最上面。'
+        ? '以前每一季寫的近況都放在這裡，新的在上面。'
         : 'Every quarterly update is kept here, newest first.'}</p>
     </header>
 
