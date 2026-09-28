@@ -7,8 +7,9 @@
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },
-  // Cloudflare Workers Builds 與本機 deploy 都會先跑這個，把 content/now/*.md 產生成 HTML
-  "build": { "command": "npm run build" },
+  // Cloudflare Workers Builds、本機 dev 與 deploy 都會先跑這個，從 src/ 與 content/ 產生全站 HTML
+  // dev 時這幾個資料夾有變動就會自動重建
+  "build": { "command": "npm run build", "watch_dir": ["src", "content", "scripts", "public/assets"] },
   "workers_dev": true,
   "routes": [
     { "pattern": "yulinf.com", "custom_domain": true },

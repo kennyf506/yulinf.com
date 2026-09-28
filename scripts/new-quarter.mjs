@@ -27,7 +27,9 @@ if (existsSync(file)) {
   process.exit(1);
 }
 
-const today = new Date().toISOString().slice(0, 10);
+/* 用本地時間組日期；toISOString() 是 UTC，臺灣早上 8 點前會變成前一天 */
+const pad = n => String(n).padStart(2, '0');
+const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 const skeleton = `---
 quarter: ${quarter}
 date: ${today}

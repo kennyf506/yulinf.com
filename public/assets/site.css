@@ -148,9 +148,13 @@ img { max-width: 100%; }
 .site-nav .links a[aria-current="page"] { color: var(--heading); border-bottom-color: var(--accent); }
 
 .nav-tools { display: flex; align-items: center; gap: 8px; }
-.nav-tools button {
+/* 語言切換是連結、配色切換是按鈕，外觀做成一樣的膠囊 */
+.nav-tools button,
+.nav-tools a {
   font: inherit;
   font-size: .8em;
+  line-height: inherit;
+  text-decoration: none;
   padding: 6px 14px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -160,8 +164,10 @@ img { max-width: 100%; }
   white-space: nowrap;
   transition: color .2s var(--ease), border-color .2s var(--ease), background-color .2s var(--ease);
 }
-.nav-tools button:hover { color: var(--accent); border-color: var(--accent); }
-.nav-tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-tools button:hover,
+.nav-tools a:hover { color: var(--accent); border-color: var(--accent); }
+.nav-tools button:focus-visible,
+.nav-tools a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ============================================================
    標題
@@ -312,6 +318,14 @@ thead th { background: var(--table-head); font-weight: 600; white-space: nowrap;
 #back-to-top.is-visible { opacity: 1; visibility: visible; }
 #back-to-top:hover { border-color: var(--accent); color: var(--accent); }
 #back-to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ============================================================
+   減少動態：系統設定要求時，關掉卡片浮起、平滑捲動等所有動畫
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .card:hover { transform: none; }
+}
 
 /* ============================================================
    列印：履歷要能直接印出來

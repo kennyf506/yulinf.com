@@ -1,0 +1,89 @@
+/* --- 履歷頁專屬版型 --- */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-block: clamp(22px, 5vw, 52px);
+  padding-inline: 22px;
+}
+.container {
+  padding: clamp(18px, 4vw, 40px);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+h1 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  margin: 0 0 .15em;
+}
+h1 .latin {
+  font-family: var(--font);
+  font-size: .62em;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: block;
+  margin-top: .3em;
+}
+h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  margin: 2.4em 0 .7em;
+  padding-bottom: .35em;
+  border-bottom: 1px solid var(--border);
+}
+h3 { font-size: 1.08rem; margin: 1.6em 0 .4em; }
+
+.tagline {
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  margin: 0 0 1.4em;
+  line-height: 1.6;
+}
+
+.split-body > :first-child { margin-top: 0; }
+
+ul, ol { padding-left: 1.35em; }
+li { margin-bottom: .35em; }
+li > ul { margin-top: .3em; }
+p { margin: 0 0 1em; }
+
+.role { font-weight: 600; color: var(--heading); }
+.role .period { font-weight: 400; color: var(--text-muted); font-size: .92em; }
+
+/* 加入通訊錄的膠囊按鈕 */
+.vcf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  font-size: .62em;
+  font-weight: 500;
+  vertical-align: middle;
+  margin-left: .7em;
+  padding: .3em .7em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color .2s var(--ease);
+}
+.vcf-link:hover { border-color: var(--accent); text-decoration: none; }
+.vcf-link img { width: 18px; height: 18px; }
+/* 深色模式下把黑色的通訊錄圖示反白 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .vcf-link img { filter: invert(1); }
+}
+:root[data-theme="dark"] .vcf-link img { filter: invert(1); }
+:root[data-theme="light"] .vcf-link img { filter: none; }
+
+@media (max-width: 600px) {
+  .split { flex-direction: column; align-items: center; }
+  .split figure { flex-basis: auto; width: min(260px, 100%); }
+  .split-body { width: 100%; }
+  .facts .label { flex-basis: 4.8em; }
+}
+
+@media print {
+  .container { box-shadow: none; padding: 0; background: transparent; }
+  .page { padding: 0; max-width: none; }
+  .vcf-link { display: none; }
+}

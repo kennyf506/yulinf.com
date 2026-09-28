@@ -3,7 +3,7 @@
   "private": true,
   "description": "方譽霖個人網站 yulinf.com",
   "scripts": {
-    "build": "node scripts/build-now.mjs",
+    "build": "node scripts/build.mjs",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "now:new": "node scripts/new-quarter.mjs"

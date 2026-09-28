@@ -2,7 +2,7 @@
 
 這個資料夾是 `/now` 的唯一資料來源。每季一個檔案，檔名就是季度：`2026-Q3.md`、`2026-Q4.md`……
 
-`public/now/` 底下所有 HTML 都是由 `scripts/build-now.mjs` 從這裡產生的，**不要手改**（那個資料夾已經被 git ignore）。
+`public/now/`（中文）與 `public/en/now/`（英文）底下所有 HTML 都是由 `scripts/build.mjs` 從這裡產生的，**不要手改**（這兩個資料夾已經被 git ignore）。
 
 ## 每季怎麼更新
 
@@ -13,7 +13,9 @@ npm run dev                     # 本機預覽 http://localhost:8787/now
 git add -A && git commit -m "近況 2027 Q1" && git push
 ```
 
-push 之後 Cloudflare 會自己跑建置，約 30 秒上線。新的一季會自動變成 `/now`，上一季自動退到 `/now/2026-q4` 存檔，`/now/archive` 與 `sitemap.xml` 也會一起更新。
+push 之後 Cloudflare 會自己跑建置，約 30 秒上線。新的一季會自動變成 `/now`（英文 `/en/now`），上一季自動退到 `/now/2026-q4` 存檔，`/now/archive` 與 `sitemap.xml` 也會一起更新。
+
+頁面上的季度會寫成「2026 Q4・10–12 月」，旁邊是 `date` 欄位的更新日期。季度指的是這份近況涵蓋的期間，`date` 是實際寫下的那天，兩者不必落在同一季。
 
 ## 檔案格式
 
