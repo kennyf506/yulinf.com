@@ -49,6 +49,8 @@
   font-size: 1.02em;
   line-height: 1.8;
 }
+.hero .highlights { list-style: none; padding: 0; }
+.hero .highlights strong { color: var(--heading); font-weight: 700; }
 
 .actions {
   display: flex;
