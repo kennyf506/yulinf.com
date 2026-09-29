@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  // 舊個人網站網址的轉址，跟主站分開部署：npx wrangler deploy -c redirect/wrangler.jsonc
+  "name": "yulin-redirect",
+  "main": "index.js",
+  "compatibility_date": "2026-09-24",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "yulin.lighthousecc.tw/*", "zone_name": "lighthousecc.tw" }
+  ]
+}
