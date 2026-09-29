@@ -69,11 +69,11 @@ const META = {
   cv: {
     zh: {
       title: '履歷 CV｜方譽霖 YuLin Fang',
-      description: '方譽霖（YuLin Fang）的履歷：工作經歷、代表專案、講師與社團經歷、證照、技能和學歷。',
+      description: '方譽霖（YuLin Fang）的履歷：工作經歷、講師、社團與社群、體育經歷、技能、證照和學歷。',
     },
     en: {
       title: 'CV | YuLin Fang 方譽霖',
-      description: "YuLin Fang's CV: work, key projects, teaching, student organizations, certifications, skills and education.",
+      description: "YuLin Fang's CV: work, teaching, organizations and communities, athletics, skills, certifications and education.",
     },
   },
 };

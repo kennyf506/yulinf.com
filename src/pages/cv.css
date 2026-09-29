@@ -82,6 +82,44 @@ p { margin: 0 0 1em; }
   .facts .label { flex-basis: 4.8em; }
 }
 
+/* 經歷列表：名稱加粗在左、年份靠右，一列一筆 */
+.entries { list-style: none; margin: 0; padding: 0; }
+.entries > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .4em 1.2em;
+  margin: 0;
+  padding: .55em 0;
+  border-bottom: 1px solid var(--rule);
+}
+.entries > li:last-child { border-bottom: 0; }
+.entries .what { min-width: 0; }
+.entries .when {
+  flex: none;
+  color: var(--text-muted);
+  font-size: .9em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.entries .note {
+  display: block;
+  margin-top: .2em;
+  color: var(--text-muted);
+  font-size: .9em;
+  line-height: 1.6;
+}
+.container strong { color: var(--heading); font-weight: 700; }
+.container .note strong { color: inherit; }
+.container ul.facts { margin-bottom: 0; }
+/* 內容太長時讓內容自己折行，不要把標籤擠到上一行 */
+.container .facts li { flex-wrap: nowrap; }
+.container .facts li > :last-child { flex: 1; min-width: 0; }
+
+@media (max-width: 600px) {
+  .entries > li { flex-direction: column; gap: .1em; }
+}
+
 /* 百岳完成紀錄：用原生 popover，不需要 JS */
 .peaks-btn {
   margin-left: .4em;
