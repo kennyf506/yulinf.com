@@ -82,8 +82,39 @@ p { margin: 0 0 1em; }
   .facts .label { flex-basis: 4.8em; }
 }
 
+/* 百岳完成紀錄：用原生 popover，不需要 JS */
+.peaks-btn {
+  margin-left: .4em;
+  padding: .1em .75em;
+  font: inherit;
+  font-size: .85em;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.peaks-btn:hover { background: var(--mark); color: var(--accent-hover); }
+.peaks {
+  width: min(420px, calc(100vw - 32px));
+  max-height: min(80vh, 640px);
+  padding: 22px 24px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+}
+.peaks::backdrop { background: rgba(0, 0, 0, .45); }
+.peaks h3 { margin: 0 0 .6em; color: var(--heading); }
+.peaks ol { margin: 0 0 1.1em; padding-left: 2.2em; }
+.peaks li { padding: .25em 0; border-bottom: 1px solid var(--rule); }
+.peaks li::marker { color: var(--text-muted); }
+.peaks time { float: right; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.peaks .btn { width: 100%; }
+
 @media print {
   .container { box-shadow: none; padding: 0; background: transparent; }
   .page { padding: 0; max-width: none; }
-  .vcf-link { display: none; }
+  .vcf-link, .peaks-btn { display: none; }
 }
