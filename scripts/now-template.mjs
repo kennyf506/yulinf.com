@@ -19,7 +19,7 @@ const PAGE_STYLE = `
   padding-block: clamp(28px, 7vw, 72px);
   padding-inline: 22px;
 }
-body { line-height: 1.85; }
+body { line-height: 1.65; }
 
 h1 {
   font-size: clamp(2rem, 6vw, 2.9rem);
@@ -90,7 +90,7 @@ section h2 {
 section p { margin: 0 0 1.1em; }
 section p:last-child { margin-bottom: 0; }
 section ul, section ol { margin: 0 0 1.1em; padding-left: 1.25em; }
-section li { margin-bottom: .5em; }
+section li { margin-bottom: .35em; }
 section li:last-child { margin-bottom: 0; }
 
 /* 尚未填寫的佔位內容：原稿裡以（待補） / (To be written) 開頭的段落 */
