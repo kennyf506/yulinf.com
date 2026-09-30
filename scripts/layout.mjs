@@ -3,7 +3,7 @@
    ------------------------------------------------------------
    首頁、履歷、/now、404 全部經過這裡，導覽列與 meta 只有這一份。
 
-   中英文是兩個獨立網址：中文在 /cv，英文在 /en/cv。
+   中英文是兩個獨立網址：中文在 /about，英文在 /en/about。
    每頁都用 hreflang 互相指向，搜尋引擎可以分別收錄兩種語言。
    ============================================================ */
 import { createHash } from 'node:crypto';
@@ -28,7 +28,7 @@ function versioned(rel) {
 const CSS_URL = versioned('assets/site.css');
 const JS_URL = versioned('assets/site.js');
 
-/* 中文路徑 → 各語言網址。'/' → '/'、'/en'；'/cv' → '/cv'、'/en/cv' */
+/* 中文路徑 → 各語言網址。'/' → '/'、'/en'；'/about' → '/about'、'/en/about' */
 export function localePath(lang, zhPath) {
   if (lang === 'zh') return zhPath;
   return zhPath === '/' ? '/en' : '/en' + zhPath;
@@ -43,7 +43,7 @@ const T = {
   },
   en: {
     htmlLang: 'en', ogLocale: 'en_US', ogAlt: 'zh_TW',
-    brand: 'YuLin Fang', home: 'Home', cv: 'CV', now: 'Now',
+    brand: 'YuLin Fang', home: 'Home', cv: 'About', now: 'Now',
     switchTo: '中文', switchLang: 'zh-Hant', switchLabel: '切換為中文',
     theme: 'Dark Mode', top: 'Back to Top',
   },
@@ -62,7 +62,7 @@ function nav(lang, { path: zhPath, section, alternate }) {
       <a class="brand" href="${localePath(lang, '/')}">${t.brand}</a>
       <ul class="links">
         ${item('home', '/')}
-        ${item('cv', '/cv')}
+        ${item('cv', '/about')}
         ${item('now', '/now')}
       </ul>
       <div class="nav-tools">
@@ -76,7 +76,7 @@ function nav(lang, { path: zhPath, section, alternate }) {
  * 組出一整頁 HTML。
  * @param {object} o
  * @param {'zh'|'en'} o.lang
- * @param {string} o.path        中文版路徑，例如 '/cv'；英文版會自動加上 /en
+ * @param {string} o.path        中文版路徑，例如 '/about'；英文版會自動加上 /en
  * @param {string} o.section     導覽列要標示的項目：home / cv / now
  * @param {string} o.title
  * @param {string} o.description

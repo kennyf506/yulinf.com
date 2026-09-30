@@ -4,7 +4,7 @@
       node scripts/build.mjs      （或 npm run build）
 
    輸入：src/pages/（首頁、履歷）、content/now/*.md（近況）
-   輸出：public/ 底下的 HTML、sitemap.xml、_headers，
+   輸出：public/ 底下的 HTML、sitemap.xml、_headers、_redirects，
          全部 git ignore，不要手改，改原稿再重跑。
 
    近況原稿格式見 content/now/README.md。
@@ -146,7 +146,7 @@ function gitDate(...files) {
 function sitemap(entries) {
   const pages = [
     { path: '/', lastmod: gitDate('src/pages/home.zh.html', 'src/pages/home.en.html'), changefreq: 'monthly', priority: '1.0' },
-    { path: '/cv', lastmod: gitDate('src/pages/cv.zh.html', 'src/pages/cv.en.html'), changefreq: 'monthly', priority: '0.9' },
+    { path: '/about', lastmod: gitDate('src/pages/cv.zh.html', 'src/pages/cv.en.html'), changefreq: 'monthly', priority: '0.9' },
     { path: '/now', lastmod: entries[0].date, changefreq: 'monthly', priority: '0.8' },
     { path: '/now/archive', lastmod: entries[0].date, changefreq: 'monthly', priority: '0.5' },
     ...entries.map(e => ({ path: `/now/${e.slug}`, lastmod: e.date, changefreq: 'yearly', priority: '0.4' })),
@@ -167,6 +167,13 @@ ${urls.join('\n')}
 </urlset>
 `;
 }
+
+/* --- Cloudflare 的 _redirects：舊網址永久轉到新網址 --- */
+const REDIRECTS = `/cv /about 301
+/cv/ /about 301
+/en/cv /en/about 301
+/en/cv/ /en/about 301
+`;
 
 /* --- Cloudflare 的 _headers：安全標頭與快取 --- */
 function headers() {
@@ -217,11 +224,12 @@ async function main() {
   /* 整個重建，季度檔改名或刪除時不會留下孤兒頁 */
   await rm(path.join(PUBLIC, 'now'), { recursive: true, force: true });
   await rm(path.join(PUBLIC, 'en'), { recursive: true, force: true });
+  await rm(path.join(PUBLIC, 'cv'), { recursive: true, force: true }); // 舊網址，已改成 /about
 
   for (const lang of LANGS) {
     const dir = lang === 'zh' ? '' : 'en/';
     await write(`${dir}index.html`, renderHome(lang));
-    await write(`${dir}cv/index.html`, renderCv(lang));
+    await write(`${dir}about/index.html`, renderCv(lang));
     await write(`${dir}now/index.html`, renderNow(entries[0], lang));
     for (const [i, e] of entries.entries()) {
       await write(`${dir}now/${e.slug}/index.html`, renderArchiveEntry(e, lang, { isLatest: i === 0 }));
@@ -231,6 +239,7 @@ async function main() {
   await write('404.html', render404());
   await write('sitemap.xml', sitemap(entries));
   await write('_headers', headers());
+  await write('_redirects', REDIRECTS);
 }
 
 main().catch(err => {

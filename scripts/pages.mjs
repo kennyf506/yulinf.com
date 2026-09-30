@@ -62,7 +62,7 @@ const META = {
     },
     en: {
       title: 'YuLin Fang 方譽霖 | Live Streaming Engineering & Video Production',
-      description: "YuLin Fang runs Lighthouse Creative and works on live streaming and video production. Here you'll find my CV, what I'm up to lately, and a link to the studio.",
+      description: "YuLin Fang runs Lighthouse Creative and works on live streaming and video production. Here you'll find more about me, what I'm up to lately, and a link to the studio.",
     },
   },
   cv: {
@@ -71,8 +71,8 @@ const META = {
       description: '關於方譽霖（YuLin Fang）：工作經歷、講師、社團與社群、體育經歷、技能、證照和學歷。',
     },
     en: {
-      title: 'CV | YuLin Fang 方譽霖',
-      description: "YuLin Fang's CV: work, teaching, organizations and communities, athletics, skills, certifications and education.",
+      title: 'About | YuLin Fang 方譽霖',
+      description: "About YuLin Fang: work, teaching, organizations and communities, athletics, skills, certifications and education.",
     },
   },
 };
@@ -110,10 +110,10 @@ export function renderHome(lang) {
 
 export function renderCv(lang) {
   const m = META.cv[lang];
-  const url = lang === 'zh' ? `${SITE}/cv` : `${SITE}/en/cv`;
+  const url = lang === 'zh' ? `${SITE}/about` : `${SITE}/en/about`;
   return page({
     lang,
-    path: '/cv',
+    path: '/about',
     section: 'cv',
     ogType: 'profile',
     extraHead: PROFILE_HEAD,
@@ -152,7 +152,7 @@ export function render404() {
         <p>可能是網址打錯，或這頁已經不在了。從下面挑一個回去吧。</p>
         <div class="actions">
           <a class="btn" href="/">回首頁</a>
-          <a class="btn btn--ghost" href="/cv">關於我</a>
+          <a class="btn btn--ghost" href="/about">關於我</a>
           <a class="btn btn--ghost" href="/now">近況</a>
         </div>
       </div>
@@ -161,7 +161,7 @@ export function render404() {
         <p>The link might be wrong, or the page is gone. Try one of these:</p>
         <div class="actions">
           <a class="btn" href="/en">Home</a>
-          <a class="btn btn--ghost" href="/en/cv">CV</a>
+          <a class="btn btn--ghost" href="/en/about">About</a>
           <a class="btn btn--ghost" href="/en/now">Now</a>
         </div>
       </div>

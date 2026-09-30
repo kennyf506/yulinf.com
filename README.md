@@ -26,7 +26,7 @@
 | 中文 | 英文 |
 | --- | --- |
 | `/` | `/en` |
-| `/cv` | `/en/cv` |
+| `/about` | `/en/about` |
 | `/now` | `/en/now` |
 | `/now/archive` | `/en/now/archive` |
 | `/now/2026-q2` | `/en/now/2026-q2` |

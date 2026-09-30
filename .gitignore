@@ -6,7 +6,8 @@ node_modules
 # 以下都由 scripts/build.mjs 產生：首頁與履歷請編輯 src/pages/，近況請編輯 content/now/*.md
 public/index.html
 public/404.html
-public/cv/
+public/about/
+public/_redirects
 public/en/
 public/now/
 public/sitemap.xml
