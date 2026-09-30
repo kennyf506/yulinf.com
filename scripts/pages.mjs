@@ -24,7 +24,6 @@ const PERSON = {
   url: `${SITE}/`,
   image: `${SITE}/og-image-v2.jpg`,
   email: 'mailto:kennyf5056@gmail.com',
-  telephone: '+886-952-741-677',
   jobTitle: '負責人兼執行總監',
   description: '光房子創意股份有限公司負責人兼執行總監，專長跨國直播工程、影像製作與活動技術統籌。',
   worksFor: {
