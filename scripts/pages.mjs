@@ -22,7 +22,7 @@ const PERSON = {
   gender: 'Male',
   nationality: 'TW',
   url: `${SITE}/`,
-  image: `${SITE}/og-image.jpg`,
+  image: `${SITE}/og-image-v2.jpg`,
   email: 'mailto:kennyf5056@gmail.com',
   telephone: '+886-952-741-677',
   jobTitle: '負責人兼執行總監',

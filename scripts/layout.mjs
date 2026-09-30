@@ -130,7 +130,7 @@ ${o.style.trimEnd().split('\n').map(l => l ? '    ' + l : l).join('\n')}
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${esc(o.title)}">
   <meta property="og:description" content="${esc(o.description)}">
-  <meta property="og:image" content="${SITE}/og-image.jpg">
+  <meta property="og:image" content="${SITE}/og-image-v2.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${o.lang === 'en' ? 'Portrait of YuLin Fang' : '方譽霖 YuLin Fang 個人照'}">
@@ -141,7 +141,7 @@ ${o.style.trimEnd().split('\n').map(l => l ? '    ' + l : l).join('\n')}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(o.title)}">
   <meta name="twitter:description" content="${esc(o.description)}">
-  <meta name="twitter:image" content="${SITE}/og-image.jpg">
+  <meta name="twitter:image" content="${SITE}/og-image-v2.jpg">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
