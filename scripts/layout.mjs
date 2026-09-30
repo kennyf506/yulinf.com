@@ -37,7 +37,7 @@ export function localePath(lang, zhPath) {
 const T = {
   zh: {
     htmlLang: 'zh-Hant', ogLocale: 'zh_TW', ogAlt: 'en_US',
-    brand: '方譽霖', home: '首頁', cv: '履歷', now: '近況',
+    brand: '方譽霖', home: '首頁', cv: '關於我', now: '近況',
     switchTo: 'EN', switchLang: 'en', switchLabel: 'Switch to English',
     theme: '深色模式', top: '回到頂部',
   },

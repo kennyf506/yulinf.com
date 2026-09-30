@@ -58,7 +58,7 @@ const META = {
   home: {
     zh: {
       title: '方譽霖 YuLin Fang｜直播工程・影像製作',
-      description: '方譽霖（YuLin Fang），光房子創意負責人，做直播工程跟影像製作。這裡有我的履歷、近況和公司介紹。',
+      description: '方譽霖（YuLin Fang），光房子創意負責人，做直播工程跟影像製作。這裡有我的經歷、近況和公司介紹。',
     },
     en: {
       title: 'YuLin Fang 方譽霖 | Live Streaming Engineering & Video Production',
@@ -67,8 +67,8 @@ const META = {
   },
   cv: {
     zh: {
-      title: '履歷 CV｜方譽霖 YuLin Fang',
-      description: '方譽霖（YuLin Fang）的履歷：工作經歷、講師、社團與社群、體育經歷、技能、證照和學歷。',
+      title: '關於我｜方譽霖 YuLin Fang',
+      description: '關於方譽霖（YuLin Fang）：工作經歷、講師、社團與社群、體育經歷、技能、證照和學歷。',
     },
     en: {
       title: 'CV | YuLin Fang 方譽霖',
@@ -152,7 +152,7 @@ export function render404() {
         <p>可能是網址打錯，或這頁已經不在了。從下面挑一個回去吧。</p>
         <div class="actions">
           <a class="btn" href="/">回首頁</a>
-          <a class="btn btn--ghost" href="/cv">履歷</a>
+          <a class="btn btn--ghost" href="/cv">關於我</a>
           <a class="btn btn--ghost" href="/now">近況</a>
         </div>
       </div>
